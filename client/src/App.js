@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { v4 } from 'uuid';
+import './App.css';
 
 const App = () => {
   const [foods, setFoods] = useState([]);
@@ -15,11 +16,13 @@ const App = () => {
   }, []);
 
   return (
-    <>
+    <div className="center">
       {foods.map((food) => (
-        <h1 key={v4()}>{food}</h1>
+        <h1 key={v4()} className="text">
+          {food}
+        </h1>
       ))}
-    </>
+    </div>
   );
 };
 

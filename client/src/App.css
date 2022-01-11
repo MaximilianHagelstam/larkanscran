@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.text {
+  font-family: 'Inter';
+  text-align: center;
+  font-size: 96px;
+  background: -webkit-linear-gradient(45deg, #fc0181, #7e27c8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
