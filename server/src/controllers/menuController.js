@@ -19,7 +19,8 @@ const getToday = async (_req, res) => {
     `https://larkan.skolkalender.fi/kalender/Events?start=${yearToday}-${monthToday}-${dayToday}&end=${yearTomorrow}-${monthTomorrow}-${dayTomorrow}`
   );
 
-  const { description } = data.find((item) => item.title === 'Lunch');
+  let { description } = data.find((item) => item.title === 'Lunch');
+  description = description.replace(/(\r\n|\n|\r)/gm, '');
 
   res.json({ lunch: description });
 };
