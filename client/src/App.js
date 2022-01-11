@@ -17,11 +17,14 @@ const App = () => {
 
   return (
     <div className="app">
-      {foods.map(food => (
+      {/* {foods.map(food => (
         <h1 className="text" key={v4()}>
           {food}
         </h1>
-      ))}
+      ))} */}
+      <h1 className="text" key={v4()}>
+        James
+      </h1>
     </div>
   );
 };
