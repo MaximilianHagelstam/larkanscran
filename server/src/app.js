@@ -7,6 +7,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use('/api/menu', menuRoutes);
+app.use('/api/food', menuRoutes);
 
 module.exports = app;
