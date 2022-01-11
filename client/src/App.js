@@ -1,7 +1,7 @@
+import { Center } from '@chakra-ui/react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { v4 } from 'uuid';
-import './App.css';
 
 const App = () => {
   const [foods, setFoods] = useState([]);
@@ -16,16 +16,13 @@ const App = () => {
   }, []);
 
   return (
-    <div className="app">
-      {/* {foods.map(food => (
-        <h1 className="text" key={v4()}>
-          {food}
-        </h1>
-      ))} */}
-      <h1 className="text" key={v4()}>
-        James
-      </h1>
-    </div>
+    <>
+      {foods.map(food => (
+        <Center key={v4()}>
+          <h1>{food}</h1>
+        </Center>
+      ))}
+    </>
   );
 };
 

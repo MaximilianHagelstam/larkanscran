@@ -23,7 +23,9 @@ const getToday = async (_req, res) => {
   description = description.replace(/(\r\n|\n|\r)/gm, '');
   description = description.split(',');
 
-  res.json({ foods: description });
+  const foods = description.map((food) => food.trim());
+
+  res.json({ foods });
 };
 
 module.exports = { getToday };
