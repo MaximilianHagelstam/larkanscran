@@ -1,13 +1,19 @@
-import { useEffect } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const App = () => {
+  const [lunch, setLunch] = useState();
+
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/menu/today`)
-      .then(res => res.json())
-      .then(data => console.log(data));
+    (async () => {
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/menu/today`
+      );
+      setLunch(res.data.lunch);
+    })();
   }, []);
 
-  return <p>James</p>;
+  return <p>{lunch}</p>;
 };
 
 export default App;
