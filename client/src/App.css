@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+
+.app {
+  background-color: #000;
+}
+
+.text {
+  color: white;
+  font-family: 'Inter';
+  font-size: 96px;
+  text-align: center;
+}

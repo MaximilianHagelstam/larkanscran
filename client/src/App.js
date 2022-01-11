@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import './App.css';
 
 const App = () => {
   const [lunch, setLunch] = useState();
@@ -13,7 +14,11 @@ const App = () => {
     })();
   }, []);
 
-  return <p>{lunch}</p>;
+  return (
+    <div className="app">
+      <h1 className="text">{lunch}</h1>
+    </div>
+  );
 };
 
 export default App;
