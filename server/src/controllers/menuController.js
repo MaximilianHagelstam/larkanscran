@@ -1,20 +1,27 @@
 const axios = require('axios');
+const { addDatePrefix } = require('../utils/dates');
 
 const getToday = async (_req, res) => {
-  const date = new Date();
+  const today = new Date();
 
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
 
-  console.log(year, month, day);
+  const yearToday = addDatePrefix(today.getFullYear());
+  const monthToday = addDatePrefix(today.getMonth() + 1);
+  const dayToday = addDatePrefix(today.getDate());
+
+  const yearTomorrow = addDatePrefix(tomorrow.getFullYear());
+  const monthTomorrow = addDatePrefix(tomorrow.getMonth() + 1);
+  const dayTomorrow = addDatePrefix(tomorrow.getDate());
 
   const { data } = await axios.get(
-    'https://larkan.skolkalender.fi/kalender/Events?start=2022-01-11&end=2022-01-12'
+    `https://larkan.skolkalender.fi/kalender/Events?start=${yearToday}-${monthToday}-${dayToday}&end=${yearTomorrow}-${monthTomorrow}-${dayTomorrow}`
   );
-  console.log(data);
 
-  res.json({ message: 'Hello team!' });
+  const { description } = data.find((item) => item.title === 'Lunch');
+
+  res.json({ lunch: description });
 };
 
 module.exports = { getToday };
