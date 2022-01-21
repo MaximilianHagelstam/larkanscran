@@ -70,7 +70,7 @@ npm start
 ## Technologies
 
 - Express.js
-- React.js
+- React
 
 ## License
 
